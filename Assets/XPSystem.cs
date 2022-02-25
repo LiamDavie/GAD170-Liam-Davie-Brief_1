@@ -24,6 +24,10 @@ public class XPSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
+    }
+    public void initialstats()
+    {
         if (health > 0)
         {
             Level = level;
@@ -40,13 +44,13 @@ public class XPSystem : MonoBehaviour
             speed = 0;
             attack = 0;
             Debug.Log("You have fallen!");
-            //initialize stats, level, xp, reqxp, etc
-
         }
+        //initialize stats, level, xp, reqxp, etc
     }
-    public void initialstats()
+
+    public void interaction() //look at button presses in RacingScript
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if(Input.GetKeyDown(KeyCode.LeftArrow))
         {
             EnemyHealth -= attack;
             health -= 10;
@@ -54,53 +58,33 @@ public class XPSystem : MonoBehaviour
 
         }
         //interaction caused by button press
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if(Input.GetKeyDown(KeyCode.RightArrow))
         {
             health += 5;
             Debug.Log("Defended, health at " + health);
         }
 
-
-    }
-
-    public void interaction() //look at button presses in RacingScript
-    {
         if (EnemyHealth = 0)
             //Enemy defeated
             curXP + 20;
         EnemyHealth = 30;
-        GainXP(curXP);
 
     }
 
-    public void GainXP(float exp)
+    public void GainXP() //gain progress
     {
-
-    }
-     
         
-        //gain progress
-    
+
+        //increase our current XP
+    }
+
     public void LevelUP() //gain lap
     {
-    if (curXP = reqXP)
-    {
-            Level++;
-            curXP = 0;
-            Debug.Log("Level up! Current level:" + Level);
-   
-    }
         //increase our level
     }
 
     public void IncreaseStats()
     {
-        if(LevelUP)
-        {
-            attack *= 1.2;
-            defence *= 1.1;
-            speed *= 1.2;
-        }
         //Improve our stats
     }
 }
